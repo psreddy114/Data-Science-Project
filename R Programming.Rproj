@@ -1,0 +1,22 @@
+
+install.packages("RCurl")
+library("RCurl")
+
+
+
+fileurl <- "https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2019-financial-year-provisional/Download-data/annual-enterprise-survey-2019-financial-year-provisional-csv.csv"
+
+download.file(fileurl, destfile = "download.csv", method = "curl")
+
+aa <- read.csv("download.csv", header = TRUE, sep = ",")
+aa
+fix(aa)
+View(aa)
+
+
+getwd()
+setwd("C:\\Users\\SHASHI\\OneDrive\\Documents")
+getwd()
+setwd("D:\\Data Science\\Data Sets\\R Programming")
+getwd()
+

@@ -1,0 +1,64 @@
+
+# Verify the package is installed.
+
+any(grepl("readxl",installed.packages()))
+
+# Install Excel package
+
+install.packages("readxl")
+
+# Set and Get the current working Directory.
+
+getwd()
+
+setwd("D:\\Data Science\\Data Sets\\R Programming")
+
+# Install Excel Library.
+
+library("readxl")
+
+# Reading the excel file into R work space.
+
+x <- read_excel("C:\\Users\\SHASHI\\OneDrive\\Documents\\Data Mining.xlsx")
+
+# Read readr in the data
+
+install.packages("readr")
+
+library("readr")
+
+# Standardization of Data
+
+standardize = function(x){return ((x-mean(x,na.rm=TRUE))/sd(x,na.rm=TRUE))}
+
+# Apply function to the dataset.
+
+
+mean(dataset$Sales, na.rm = TRUE)
+
+sd(dataset$Sales, na.rm = TRUE)
+
+summary(dataset$Sales)
+
+dataset <- x
+
+dataset$Sales <- scale(dataset$Sales)
+
+View(dataset)
+
+profit <- read_excel("D:\\Data Science\\Data Sets\\R Programming\\Sample SD.xlsx")
+
+standardize = function(x){return((x-mean(x,na.rm=TRUE))/sd(x,na.rm=TRUE))}
+
+summary(profit$Profit,na.rm=TRUE)
+
+sd(profit$Profit,na.rm=TRUE)
+
+newfile <- profit
+
+newfile$Profit <- scale(newfile$Profit)
+
+summary(newfile$Profit,na.rm=TRUE)
+
+sd(newfile$Profit,na.rm=TRUE)
+

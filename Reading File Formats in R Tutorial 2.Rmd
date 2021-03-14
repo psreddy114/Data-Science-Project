@@ -1,0 +1,239 @@
+# Get and print current working directory.
+print(getwd())
+
+# Set current working directory.
+setwd("D:\\Data Science\\Data Sets\\R Programming")
+
+# Get and print current working directory.
+print(getwd())
+
+setwd("D:\\Data Science\\Data Sets\\R Programming")
+
+print(getwd())
+
+# Reading CSV File into R Environment
+
+data <- read.csv("D:\\Data Science\\Data Sets\\R Programming\\CSVFILE.csv")
+
+fix(data)
+
+View(data)
+
+# Analyzing the CSV File
+
+print(is.data.frame(data))
+
+print(ncol(data))
+
+print(nrow(data))
+
+# Get the Maximum Salary
+
+# Create a data frame.
+data <- read.csv("D:\\Data Science\\Data Sets\\R Programming\\CSVFILE.csv")
+
+# Get the max salary from data frame.
+sal <- max(data$salary)
+
+print(sal)
+
+# Get the person details having max salary from data frame
+
+retval <- subset(data, salary == max(salary))
+
+print(retval)
+
+
+# Get all the people working in IT Department
+
+retval <- subset(data, dept=="IT")
+
+print(retval)
+
+
+# Get the persons in IT department whose salary is greater than 600
+
+info <- subset(data, salary > 600 & dept == "IT")
+
+print(info)
+  
+# Get the people who joined on or after 2014
+
+retval <- subset(data, as.Date(start_date) > as.Date("2014-01-01"))
+
+print(retval)
+
+# Writing into CSV File
+
+write.csv(retval,"output.csv")
+
+newdata <- read.csv("output.csv")
+
+print(newdata)
+
+
+install.packages("xlsx")
+
+# Verify the package is installed.
+
+any(grepl("xlsx",installed.packages()))
+
+any(grepl("readxl",installed.packages()))
+
+# Load the Library into R workspace
+
+library("xlsx")
+
+install.packages("rJava")
+
+install.packages("methods")
+
+install.packages("xlsxjars")
+
+install.packages("readxl")
+
+library("xlsx")
+
+library("readxl")
+
+getwd()
+setwd("D:\\Data Science\\Data Sets\\R Programming")
+getwd()
+
+
+#Read the first worksheet in the file input.xlsx
+
+data <- read_excel("D:\\Data Science\\Data Sets\\R Programming\\input.xlsx", sheet = 1)
+
+print(data)
+
+#Read the second worksheet in the file input.xlsx
+
+data <- read_excel("D:\\Data Science\\Data Sets\\R Programming\\input.xlsx", sheet = 2)
+print(data)
+
+
+# Read the "mtcars" data frame as a csv file and store only the columns 
+   "cyl", "am" and "gear".
+
+write.table(mtcars, file = "mtcars.csv", row.names = FALSE, na="",col.names = TRUE, sep = ",")
+
+# Store 5 records from the csv file as a new data frame.
+
+new.mtcars <- read.table("mtcars.csv",sep=",",header = TRUE, nrows = 5)
+
+# Create a connection object to write the binary file using mode "wb".
+
+write.filename = file("D:\\Data Science\\Data Sets\\R Programming\\binmtcars.dat","wb")
+
+
+# Write the column names of the data frame to the connection object.
+
+writeBin(colnames(new.mtcars),write.filename)
+
+
+# Write the records in each of the column to the file.
+
+writeBin(c(new.mtcars$cyl,new.mtcars$am,new.mtcars$and,new.mtcars$gear),write.filename)
+
+
+# Close the file for writing so that it can be read by other program.
+
+close(write.filename)
+
+# Create a connection object to read the file in binary mode using "rb".
+
+read.filename <- file("D:\\Data Science\\Data Sets\\R Programming\\binmtcars.dat", "rb")
+
+# First read the column names. n = 3 as we have 3 columns.
+
+column.names <- readBin(read.filename, character(),  n = 3)
+
+# Next read the column values. n = 18 as we have 3 column names and 15 values.
+
+read.filename <- file("D:\\Data Science\\Data Sets\\R Programming\\binmtcars.dat", "rb")
+
+bindata <- readBin(read.filename, integer(),  n = 18)
+
+print(bindata)
+
+
+# Read the values from 4th byte to 8th byte which represents "cyl".
+
+cyldata = bindata[4:8]
+
+print(cyldata)
+
+# Read the values form 9th byte to 13th byte which represents "am".
+
+amdata = bindata[9:13]
+
+print(amdata)
+
+# Read the values form 9th byte to 13th byte which represents "gear".
+
+geardata = bindata[14:18]
+
+print(geardata)
+
+# Combine all the read values to a dat frame.
+
+finaldata = cbind(cyldata, amdata, geardata)
+
+colnames(finaldata) = column.names
+
+print(finaldata)
+
+# check the package installed or not for XML file
+
+any(grepl("xml",installed.packages()))
+
+library("XML")
+
+library("methods)
+
+# Assigning file name with path
+
+xmlpath <- "D:\\Data Science\\Data Sets\\R Programming\\xmlfile.xml"
+
+xmlfile <- xmlParse(xmlpath)
+
+print(xmlpath)
+
+View(xmlpath)
+
+fix(xmlpath)
+
+# converting XML file into  data frame in R environment
+
+xmldf <- as.data.frame(xmlpath)
+
+print(xmldf)
+
+fix(xmldf)
+
+View(xmldf)
+
+write.csv(xmldf,"D:\\Data Science\\Data Sets\\R Programming\\xmltocsv.csv")
+
+install.packages("XML")
+
+install.packages("RCurl")
+
+install.packages("stringr")
+
+install.packages("plyr")
+
+install.packages("httr")
+
+install.packages("XML")
+
+library("RCurl")
+
+library("stringr")
+
+library("plyr")
+
+library("httr")
+
+library("XML")
